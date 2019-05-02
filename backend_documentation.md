@@ -90,7 +90,7 @@ Por ejemplo, hay 2 archivos de semillas para los usuarios: ```Modules\General\Da
 
 La librería para utilizar la especificación JSON API se llama ```laravel-query-builder``` y la documentación de dicha librería se puede encontrar en este [link](https://github.com/spatie/laravel-query-builder).
 
-Esta librería se utiliza en la mayoría de los controladores del backned, específicamente en los métodos ```index``` y ```show```. Al revisar la clase ``` ``` se puede encontrar la implementación de los métodos de dicha librería
+Esta librería se utiliza en la mayoría de los controladores del backend, específicamente en los métodos ```index``` y ```show```. Al revisar la clase ```Modules\Warehouse\Http\Controllers\Api\WhProductController``` se puede encontrar la implementación de los métodos de dicha librería
 
 ```
 /**
