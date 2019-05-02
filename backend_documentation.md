@@ -78,7 +78,7 @@ Por lo tanto, la creación de un endpoint en el backend se podría resumir en lo
 3. Crear ```Servicio``` (encerrar la lógica en una transacción en caso de ser necesario)
 4. Ajustar la lógica desarrollada hasta pasar todos los test implementados en ```(2)```
 
-### Información adicional sobre las migraciones
+### Información adicional sobre las semillas
 
 Actualmente el backend tiene 2 carpetas con semillas en cada módulo, una con semillas de ```desarrollo``` y otra con semillas de ```producción```. Esto implica que si se debe crear una archivo de semillas, se debe crear una en cada carpeta, lo mismo ocurre si debes modificar una semilla existente, ya que debes modificar la semilla en cada directorio.
 
