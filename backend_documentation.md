@@ -20,7 +20,7 @@ En este [enlace](https://nwidart.com/laravel-modules/v4/advanced-tools/artisan-c
 
 ### 1.- Agregar Ruta
 
-Para agregar un nuevo endpoint, lo primero que se debe ahcer es agregar una ruta en el archivo ```Modules\name_module\Routes\api.php```, donde ```name_module``` corresponde al módulo al cual corresponderá el nuevo endpoint (Accounting, Auth, General, Pos, Purchase, Sale, Warehouse).
+Para agregar un nuevo endpoint, lo primero que se debe hacer es agregar una ruta en el archivo ```Modules\name_module\Routes\api.php```, donde ```name_module``` corresponde al módulo al que pertenece el nuevo endpoint (Accounting, Auth, General, Pos, Purchase, Sale, Warehouse).
 
 
 ### 2.- Crear Test
@@ -31,14 +31,14 @@ Tener en cuenta que los test se crean en el directorio correspondiente al módul
 
 ### 3.- Crear Request (Opcional)
 
-Si el endpoint tiene un formato especial para los parámetros de entrada, se debe crear una clase de tipo ```Request``` para restringir las request que se hagan al backend. Un ejemplo de clase Request se puede observar en el endpoint de creación de usuario ```Modules\General\Http\Requests\GUser\CreateGUserRequest```. Al igual que con los test, la clase ```Request``` debe estar alojado en un directorio con el nombre de la entidad con la que se está trabajando, que en el caso anterior, sería una carpeta con el nombre ```GUser```.
+Si el endpoint tiene un formato especial para los parámetros de entrada, se debe crear una clase de tipo ```Request``` para restringir las solicitudes con formato incorrecto. Un ejemplo de clase Request podría ser ```Modules\General\Http\Requests\GUser\CreateGUserRequest```. Al igual que con los test, la clase ```Request``` debe estar alojado en un directorio con el nombre de la entidad con la que se está trabajando, que en el caso anterior, sería una carpeta con el nombre ```GUser```.
 
 
 ### 4.- Crear Servicio
 
-Luego de pasar la restricción que impone la clase ```Request``` a las solicitudes entrantes, el código debe llamar a la una clase que implemente la lógica que se desea desarrollar, a esta clase se la denomina ```servicio```. Por ejemplo, para el crud del modelo ```GUser``` se creo la clase ```Modules\General\Services\GUser\CrudUserService```. 
+Luego de pasar la restricción que impone la clase ```Request``` a las solicitudes entrantes, el código debe llamar a la una clase que implemente la lógica que se desea desarrollar, a esta clase se la denomina ```servicio```. Por ejemplo, para el crud del modelo ```GUser``` se creó la clase ```Modules\General\Services\GUser\CrudUserService```. 
 
-Si la lógica a desarrollar realiza actualizaciones en la Base de Datos, las funciones que realizan estas actualizaciones deberían estar encerradas en una transacción. El código de la transacción debe ser agregado en el controlador (no en el servicio como se hacía anteriormente). Por ejemplo, en el controlador ```Modules\General\Http\Controllers\Api\GUserController``` en el método ```store``` se envuelve la función para almacenar un usuario en una ```transacción```:
+Si la lógica a desarrollar realiza actualizaciones en la Base de Datos, las funciones que realizan estas actualizaciones deberían estar encerradas en una transacción. El código de la transacción debe ser agregado en el controlador (no en el servicio como se hacía anteriormente). Por ejemplo, en el controlador ```Modules\General\Http\Controllers\Api\GUserController``` en el método ```store``` se puede observar que la función para almacenar un usuario está envuelta en una ```transacción```:
 
 ```
 /**
@@ -57,11 +57,11 @@ public function store(CreateGUserRequest $request)
 }
 ```
 
-Por último, en el código anterior se puede se observa que la transacción finaliza con ```return CustomResponse::created($resp);```, eque se refiere a una llamada de un método de la clase ```App\Http\Response\CustomResponse``` (creada por don José) que retorna un array. el cual es devuelta al usuario (frontend) como respuesta a la solicitud. Los métodos de esta clase que se utilizan normalmente son ```ok``` para solicitudes exitosas, ```created``` para solicitudes que crean entidades en la base de datos, ```error``` y ```normalError``` para solicitudes con errores.
+Por último, en el código anterior se puede se observa que la transacción finaliza con ```return CustomResponse::created($resp);```, que se refiere a la llamada de un método de la clase ```App\Http\Response\CustomResponse``` (creada por don José) que retorna un array. el cual es devuelta al usuario (frontend) como respuesta a la solicitud. Los métodos de esta clase que se utilizan normalmente son ```ok``` para solicitudes exitosas, ```created``` para solicitudes que crean entidades en la base de datos, ```error``` y ```normalError``` para solicitudes con errores.
 
 ### 5.- Pasar test de Prueba unitaria implementada en (2)
 
-Luego de crear loslñas clases necesarias para implementar la lógica del endpoint, se debe ejecutar las purebas unitarias implementadas y ajustar el código hasta pasar todas las pruebas desarrolladas. Para ejecutar un solo test (y no todos los test del backend), se utiliza el siguiente comando:
+Luego de crear las clases necesarias para implementar la lógica del endpoint, se debe ejecutar las purebas unitarias implementadas y ajustar el código hasta pasar todas las pruebas desarrolladas. Para ejecutar un solo test (y no todos los test del backend), se utiliza el siguiente comando:
 
 ```vendor\bin\phpunit --filter MyTest```
 
@@ -76,11 +76,11 @@ Por lo tanto, la creación de un endpoint en el backend se podría resumir en lo
 3. Crear ```Servicio``` (encerrar la lógica en una transacción en caso de ser necesario)
 4. Ajustar la lógica desarrollada hasta pasar todos los test implementados en ```(2)```
 
-### Adicional sobre las migraciones
+### Información adicional sobre las migraciones
 
 Actualmente el backend tiene 2 carpetas con semillas en cada módulo, una con semillas de ```desarrollo``` y otra con semillas de ```producción```. Esto implica que si tienes que crear una archivo de semillas, tienes que crear una en cada carpeta, lo mismo ocurre si tienes que modificar una semilla existente, ya que tienes que modificar la semilla en cada directorio.
 
-Por ejemplo, hay 2 archivos de semillas para los usuarios: ```Modules\General\Database\Seeders\Development\GUserTableSeeder``` y  ```Modules\General\Database\Seeders\Production\GUserTableSeeder``` correspondiente semillas de desarrollo y producción.
+Por ejemplo, hay 2 archivos de semillas para los usuarios: ```Modules\General\Database\Seeders\Development\GUserTableSeeder``` y  ```Modules\General\Database\Seeders\Production\GUserTableSeeder``,` correspondiente semillas de desarrollo y producción.
 
 ## Documentación de la Base de Datos (Pendiente)
 
