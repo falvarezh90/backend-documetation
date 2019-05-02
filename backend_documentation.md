@@ -82,7 +82,7 @@ Por lo tanto, la creación de un endpoint en el backend se podría resumir en lo
 
 Actualmente el backend tiene 2 carpetas con semillas en cada módulo, una con semillas de ```desarrollo``` y otra con semillas de ```producción```. Esto implica que si tienes que crear una archivo de semillas, tienes que crear una en cada carpeta, lo mismo ocurre si tienes que modificar una semilla existente, ya que tienes que modificar la semilla en cada directorio.
 
-Por ejemplo, hay 2 archivos de semillas para los usuarios: ```Modules\General\Database\Seeders\Development\GUserTableSeeder``` y  ```Modules\General\Database\Seeders\Production\GUserTableSeeder``,` correspondiente semillas de desarrollo y producción.
+Por ejemplo, hay 2 archivos de semillas para los usuarios: ```Modules\General\Database\Seeders\Development\GUserTableSeeder``` y  ```Modules\General\Database\Seeders\Production\GUserTableSeeder```, correspondiente semillas de desarrollo y producción.
 
 
 
