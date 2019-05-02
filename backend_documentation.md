@@ -156,7 +156,7 @@ public function index(Request $request)
 }
 ```
 
-En el segmento de código anterior, se puede observar el uso de ```includes```, ```appends```, ```filters``` (algunos personalizados) y ```sorts```. En la documentación se puede obenter más orientación de como funciona cada uno de estos métodos. 
+En el segmento de código anterior, se puede observar el uso de ```includes```, ```appends```, ```filters``` (algunos personalizados) y ```sorts```. En la documentación se puede obenter más orientación de cómo funciona cada uno de estos métodos. 
 
 A grandes rasgos, lo que hace esta librería es extender la clase ```QueryBuilder``` de Laravel para recibir y responder una request respetando la especificación JSON API.
 
