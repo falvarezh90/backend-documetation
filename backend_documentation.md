@@ -63,7 +63,7 @@ Dos puntos adicionales a tener en cuenta sobre los servicios, el primero se refi
 
 ### 5.- Pasar test de Prueba unitaria implementada en (2)
 
-Luego de crear las clases necesarias para implementar la lógica del endpoint, se debe ejecutar las purebas unitarias implementadas y ajustar el código hasta pasar todas las pruebas desarrolladas. Para ejecutar un solo test (y no todos los test del backend), se utiliza el siguiente comando:
+Luego de crear las clases necesarias para implementar la lógica del endpoint, se debe ejecutar las pruebas unitarias implementadas y ajustar el código hasta pasar todas las pruebas desarrolladas. Para ejecutar un solo test (y no todos los test del backend), se utiliza el siguiente comando:
 
 ```vendor\bin\phpunit --filter MyTest```
 
@@ -80,7 +80,7 @@ Por lo tanto, la creación de un endpoint en el backend se podría resumir en lo
 
 ### Información adicional sobre las migraciones
 
-Actualmente el backend tiene 2 carpetas con semillas en cada módulo, una con semillas de ```desarrollo``` y otra con semillas de ```producción```. Esto implica que si tienes que crear una archivo de semillas, tienes que crear una en cada carpeta, lo mismo ocurre si tienes que modificar una semilla existente, ya que tienes que modificar la semilla en cada directorio.
+Actualmente el backend tiene 2 carpetas con semillas en cada módulo, una con semillas de ```desarrollo``` y otra con semillas de ```producción```. Esto implica que si se debe crear una archivo de semillas, se debe crear una en cada carpeta, lo mismo ocurre si debes modificar una semilla existente, ya que debes modificar la semilla en cada directorio.
 
 Por ejemplo, hay 2 archivos de semillas para los usuarios: ```Modules\General\Database\Seeders\Development\GUserTableSeeder``` y  ```Modules\General\Database\Seeders\Production\GUserTableSeeder```, correspondiente a semillas de desarrollo y producción respectivamente.
 
@@ -90,7 +90,7 @@ Por ejemplo, hay 2 archivos de semillas para los usuarios: ```Modules\General\Da
 
 La librería para utilizar la especificación JSON API se llama ```laravel-query-builder``` y la documentación de dicha librería se puede encontrar en este [link](https://github.com/spatie/laravel-query-builder).
 
-Esta librería se utiliza en la mayoría de los controladores del backend, específicamente en los métodos ```index``` y ```show```. Al revisar la clase ```Modules\Warehouse\Http\Controllers\Api\WhProductController``` se puede encontrar la implementación de los métodos de dicha librería
+Esta librería se utiliza en la mayoría de los controladores del backend, específicamente en los métodos ```index``` y ```show```. Al revisar la clase ```Modules\Warehouse\Http\Controllers\Api\WhProductController``` se puede encontrar la implementación de los métodos de dicha librería.
 
 ```
 /**
