@@ -57,9 +57,9 @@ public function store(CreateGUserRequest $request)
 }
 ```
 
-Por último, en el código anterior se puede se observar que la transacción finaliza con ```return CustomResponse::created($resp);```, que se refiere a la llamada de un método de la clase ```App\Http\Response\CustomResponse``` (creada por don José) que retornan un array. el cual es devuelto al usuario como respuesta a la solicitud. Los métodos de esta clase que se utilizan normalmente son ```ok``` para solicitudes exitosas, ```created``` para solicitudes que crean entidades en la base de datos, ```error``` y ```normalError``` para solicitudes con errores.
+Por último, en el código anterior se puede se observar que la transacción finaliza con ```return CustomResponse::created($resp);```, que se refiere a la llamada de un método de la clase ```App\Http\Response\CustomResponse``` (creada por don José) que retorna un array. el cual es devuelto al usuario como respuesta a la solicitud. Los métodos de esta clase que se utilizan normalmente son ```ok``` para solicitudes exitosas, ```created``` para solicitudes que crean entidades en la base de datos, ```error``` y ```normalError``` para solicitudes con errores.
 
-2 puntos adicionales a tener en cuenta sobre los servicios, el primero se refiere a que los servicios deben estar alojados en una carpeta que tenga el nombre de la entidad o modelo al que se refiere el servicio (como con los test y request). El otro punto hace referencia a que si el servicio modifica en la base de datos muchos modelos, el servicio primcipal debería llamar a otros servicios dedicados a modificar estos otros modelos. Esto tiene como finalidad hacer a la aplicación más modular y legible.
+Dos puntos adicionales a tener en cuenta sobre los servicios, el primero se refiere a que los servicios deben estar alojados en una carpeta que tenga el nombre de la entidad o modelo al que se refiere el servicio (como con los test y request). El otro punto hace referencia a que si el servicio modifica en la base de datos muchos modelos, el servicio primcipal debería llamar a otros servicios dedicados a modificar estos otros modelos. Esto tiene como finalidad hacer a la aplicación más modular y legible.
 
 ### 5.- Pasar test de Prueba unitaria implementada en (2)
 
